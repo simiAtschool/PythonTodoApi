@@ -1,0 +1,40 @@
+@url = http://localhost:5000
+#@host = 20.203.242.109
+
+### Get all todos
+
+GET {{url}}/todos
+
+
+### Get todo by id 
+
+GET {{url}}/todos/5
+
+### Create todo
+POST {{url}}/todos
+content-type: application/json
+
+{
+    "title": "Go for a walk and talk"
+}
+
+### Update todo (just the title)
+PUT {{url}}/todos/1
+content-type: application/json
+
+{
+    "title" : "Do some more work"
+}
+
+### Update todo (just done)
+PUT {{url}}/todos/1
+content-type: application/json
+
+{
+    "done" : true
+}
+
+
+
+### Delete todo
+DELETE {{url}}/todos/3
