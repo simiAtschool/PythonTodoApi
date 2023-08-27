@@ -2,15 +2,12 @@
 
 @url = http://localhost:5000
 #@url = https://miautodo.azurewebsites.net
-#@host = 20.203.242.109
 
 ### Get all todos
-
 GET {{url}}/todos
 
 
 ### Get todo by id 
-
 GET {{url}}/todos/5
 
 ### Create todo
@@ -36,8 +33,6 @@ content-type: application/json
 {
     "done" : true
 }
-
-
 
 ### Delete todo
 DELETE {{url}}/todos/3
