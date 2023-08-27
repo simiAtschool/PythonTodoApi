@@ -15,6 +15,7 @@ password = os.environ.get('AZURE_MYSQL_PASSWORD')
 
 # db_uri = 'sqlite:///todos.db'
 db_uri = f'mysql+pymysql://{user}:{password}@{host}/{db}'
+print(db_uri)
 
 app = Flask(__name__)
 
