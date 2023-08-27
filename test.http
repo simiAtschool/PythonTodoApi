@@ -1,7 +1,7 @@
 
 
 #@url = http://localhost:5000
-@url = https://miautodo.azurewebsites.net
+@url = https://paastodo.azurewebsites.net
 
 ### Get all todos
 GET {{url}}/todos
