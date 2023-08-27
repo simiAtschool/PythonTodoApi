@@ -4,7 +4,9 @@ from sqlalchemy_serializer import SerializerMixin
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todos.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todos.db'  #mysql://username:password@host:port/database_name
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password123@localhost/tododb'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
