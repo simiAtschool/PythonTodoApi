@@ -6,15 +6,19 @@ from dotenv import load_dotenv
 
 # Load environment variables from .env file
 load_dotenv()
+host_env = os.environ.get('MYSQL_HOST')
+db_env = os.environ.get('MYSQL_NAME')
+user_env = os.environ.get('MYSQL_USER')
+password_env = os.environ.get('MYSQL_PASSWORD')
 
 # Access environment variables
-host = os.environ.get('AZURE_MYSQL_HOST')
-db = os.environ.get('AZURE_MYSQL_NAME')
-user = os.environ.get('AZURE_MYSQL_USER')
-password = os.environ.get('AZURE_MYSQL_PASSWORD')
+host = os.environ.get('AZURE_MYSQL_HOST', host_env)
+db = os.environ.get('AZURE_MYSQL_NAME', db_env)
+user = os.environ.get('AZURE_MYSQL_USER', user_env)
+password = os.environ.get('AZURE_MYSQL_PASSWORD', password_env)
 
 # db_uri = 'sqlite:///todos.db'
-db_uri = f'mysql+pymysql://{user}:{password}@{host}/{db}'
+db_uri = f'mysql+pymysql://{user}:{password}@{host}:3306/{db}'
 print(db_uri)
 
 app = Flask(__name__)
