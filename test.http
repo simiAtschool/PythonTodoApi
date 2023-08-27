@@ -1,5 +1,7 @@
-#@url = http://localhost:5000
-@url = https://miautodo.azurewebsites.net
+
+
+@url = http://localhost:5000
+#@url = https://miautodo.azurewebsites.net
 #@host = 20.203.242.109
 
 ### Get all todos

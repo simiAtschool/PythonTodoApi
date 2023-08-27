@@ -1,11 +1,24 @@
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy_serializer import SerializerMixin
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Access environment variables
+host = os.environ.get('AZURE_MYSQL_HOST')
+db = os.environ.get('AZURE_MYSQL_NAME')
+user = os.environ.get('AZURE_MYSQL_USER')
+password = os.environ.get('AZURE_MYSQL_PASSWORD')
+
+# db_uri = 'sqlite:///todos.db'
+db_uri = f'mysql+pymysql://{user}:{password}@{host}/{db}'
 
 app = Flask(__name__)
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todos.db'  #mysql://username:password@host:port/database_name
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password123@localhost/tododb'
+app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
