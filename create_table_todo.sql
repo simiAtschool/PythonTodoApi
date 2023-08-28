@@ -1,0 +1,3 @@
+CREATE TABLE `tododb`.`todo` (`id` INT NOT NULL , `title` VARCHAR(100) NOT NULL ,
+ `done` BOOLEAN NOT NULL , `created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+ `finished_on` DATETIME NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
